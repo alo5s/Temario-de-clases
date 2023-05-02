@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% block customCSS %}<link rel="stylesheet" href="/static/css/students.css">{% endblock %}
+{% block body %}
+<section class="content-estudiante">
+    <div class="conente-grupo">
+        <div class="content-tabla">
+            <h1>Estudiante</h1>
+            <table>
+                <tr>
+                    <td class="content-td">ID</td>
+                    <td class="content-td">Name</td>
+                    <td class="content-td">Apellido</td>
+                    <td class="content-td">clases</td>
+                </tr>
+                <tbody>
+                    {% for alumno in alumnos %}
+                    <tr>
+                        <td>{{alumno.0}}</td>
+                        <td>{{alumno.1}}</td>
+                        <td>{{alumno.2}}</td>
+                        <td>
+                            <a href="/task_view_alumno/{{alumno.0}}" class="view"><i class="material-icons"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="content-tabla"> 
+            <h1>Grupo</h1>
+            <table>
+                <tr>
+                    <td class="content-td">ID</td>
+                    <td class="content-td">Grupo</td>
+                    <td class="content-td">Integrante</td>
+                    <td class="content-td">clases</td>
+                </tr>
+                <tbody>
+                    {% for grupo in grupos %}
+                    <tr>
+                        <td>{{grupo.0}}</td>
+                        <td>{{grupo.1}}</td>
+                        <td>{{grupo.2}}</td>
+                        <td>
+                            <a href="/task_view_grupo/{{grupo.0}}" class="view"><i class="material-icons"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>       
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+

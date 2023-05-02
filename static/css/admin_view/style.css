@@ -1,0 +1,168 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+body{
+    background: #f5f5f5;
+}
+/*HEADER*/
+header{
+    display: flex;
+    justify-content: space-between;
+    background: #435d7d;
+    color: #fff;
+    padding: 16px 30px;
+    border-radius: 3px 3px 0 0;
+}
+header h2 {
+    margin: 5px 0 0;
+    font-size: 30px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+header h2 b {
+    font-weight: 700;
+
+}
+header a button{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    margin-top: 10px;
+    display: inline-block;
+    border-radius: 2px;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    min-width: 50px;
+    border: none;
+    height: 32px;
+}
+header a button:hover{
+    background-color: red;
+    cursor: pointer;
+}
+/*body*/
+select{
+    width: 100px;
+    height: 36px;
+    margin-right: 20px;
+
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*Tabla-Header*/
+.content-form{
+    display: flex;
+    padding: 0px 20px;
+}
+.content-form input,button {
+    
+    margin-left: 19px;
+
+}
+
+.tda-header{
+    display: flex;
+}
+
+.btn-info {
+    color: #000000;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    margin-bottom: 0;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+}
+.btn-info:hover{
+    background-color: red;
+    cursor: pointer;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid transparent;
+}
+.tda-header{
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+
+/*Tabla*/
+
+#main-container{
+	margin: 50px auto;
+    width: 750px;
+
+}
+
+table{
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+	width: 100%;
+    border:1px solid #0f0f0f;
+}
+
+th, td{
+	padding: 15px;
+}
+
+thead{
+    background: #70e37e;
+	border-bottom: solid 2px #0F362D;
+    color: #171f2c;
+    font-family: 'Open Sans', sans-serif;
+}
+tr {
+    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    
+}
+tr:nth-child(even){
+
+	background-color: #ddd;
+}
+
+td a {
+    margin: 0 3px;
+}
+.icon{
+    display: flex;
+}
+.view {
+    color: #03A9F4;
+}
+.edit {
+    color: #FFC107;
+}
+.delete {
+    color: #E34724;
+}
+
+
+#tb-alumno{
+    display: none;
+}
+#tb-alumno-add{
+    display: none;
+}
+
+#tb-grupo{
+    display: none;
+}
+#tb-grupo-add{
+    display: none;
+}

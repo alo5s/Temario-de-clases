@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+   padding: 0px;
+   margin: 0px;
+   font-family: 'Poppins', sans-serif;
+}
+/*************** HEADER *************/
+header {
+    top: 0; left: 0;
+    padding: 15px 100px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    background: #bf2277;
+    justify-content: space-between;
+}
+
+
+header .logo {
+    color: whitesmoke;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav ul li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #ffffff;
+    border-radius: 20px;
+}
+/*
+.action_btn{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #0d0b0f;
+    border-radius: 20px;
+    background: #fff;
+}
+.action_btn:hover{
+    color: rgb(11, 137, 255);
+}
+*/
+header nav ul li a:hover {
+    background: #fff;
+    color: #0d0b0f;
+}
+button {
+    display: none;
+    background-image: none;
+    background-color: transparent;
+    border: none;
+    
+}
+button.material-icons.nav-toggle {
+    display: none;
+    font-size: 40px;
+}
+
+
+.Logo-Menu{
+    display: flex;
+    justify-content:space-between;
+}
+/*Responsi*/
+
+@media (max-width: 768px){
+    header {
+        padding: 15px;
+        display: block;
+    }
+    header .logo{
+        font-size: 28px;
+    }
+   
+    button.material-icons.nav-toggle {
+        display: block;
+    }
+
+    .nav-link-ul{
+        display: none;
+
+    }
+    .action_btn{
+        background: none;
+        color: #fff;
+    }
+    .nav-link-ul-visible {
+        padding: 10px;
+		height: calc(100% - 60px);
+		margin-top: 20px;
+		display: flex ;
+		flex-direction: column;
+		align-items: center;
+    }
+    header nav ul li a:hover {
+        background: #bf2277;
+    }
+}

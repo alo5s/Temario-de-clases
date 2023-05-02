@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/static/css/admin_view/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="/static/js/index.js"></script>
+    <title>Sidebars</title>
+</head>
+<body>
+    <header>
+        <h2>FlASK <b>ADMIN</b></h2>
+        <a href="{{ url_for('auth.logout_admin') }}"><button>Cerrar sesión</button></a>
+    </header>
+     <!-- Script para mostrar la alerta en caso de éxito -->
+     {% with messages = get_flashed_messages(with_categories=true) %}
+     {% if messages %}
+     <script>
+         Swal.fire({
+             icon: 'success',
+             title: '{{ messages[0][1] }}',
+           });
+     </script>
+     {% endif %}
+     {% endwith %}
+    <section>
+        <div id="main-container"  onchange="fieldAdmin()" >
+            <div class="tda-header">
+                <select id="tabla-view" >
+                    <option value="profesores">Profesores</option>
+                    <option value="alumno">Alumno</option>
+                    <option value="grupo">Grupo</option>
+                </select>
+                <form action="/add_profe" class="content-form" method="POST" id="tb-profesor-add">
+                    <input type="text" name="username" placeholder="Nombre de Profesor" required="required">
+                    <input type="text" name="password" placeholder="Password" required="required">
+                    <button  class="btn btn-info add-new">Agregar Profesor</button>
+                </form>
+                <form action="/add_estudian" class="content-form" method="POST" id="tb-alumno-add">
+                    <input type="text" name="nombre" placeholder="Nombre" required="required">
+                    <input type="text" name="apellido" placeholder="Apellido" required="required">
+                    <button  class="btn btn-info add-new">Agregar Estudiante</button>
+                </form>
+                
+                <form action="/add_grupo" class="content-form" method="POST" id="tb-grupo-add">
+                    <input type="text" name="nombre" placeholder="Nombre de Grupo" required="required">
+                    <input type="int" name="grupo" placeholder="Total de grupo" required="required">
+                    <button class="btn btn-info add-new">Agregar Grupo</button>
+                </form>
+            </div>
+            <table id="tb-profesor">
+                <thead>
+                    <tr>
+                        <th>Id</th><th>Nombre y apellido</th><th>password</th><th>Clases T</th><th>Actions
+                        </th>
+                    </tr>
+                </thead>
+            {% for dato in profes %}
+                <tr>
+                    <td>{{dato.0}}</td><td>{{dato.1}}</td><td>{{dato.2}}</td><td>{{dato.3}}</td><td class="icon">
+                        <a href="/admin_view_infor/{{dato.0}}" class="view" title="" data-toggle="tooltip" data-original-title="View"><i class="material-icons"></i></a>
+                        <a href="/delet-profesor/{{dato.0}}" class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons"></i></a>    
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+            <table id="tb-alumno">
+                <thead>
+                    <tr>
+                        <th>id</th><th>Nombre</th><th>Apellido</th><th>Actions
+                    </tr>
+                </thead>
+            {% for dato in alumnos %}
+                <tr>
+                    <td>{{dato.0}}</td><td>{{dato.1}}</td><td>{{dato.2}}</td><td class="icon">
+                        <a href="/admin-view-task-alumno/{{dato.0}}" class="view" title="" data-toggle="tooltip" data-original-title="View"><i class="material-icons"></i></a>
+                        <a href="/delet-estudian/{{dato.0}}" class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons"></i></a>    
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+            <table id="tb-grupo">
+                <thead>
+                    <tr>
+                        <th>id</th><th>Grupo</th><th>integrante</th><th>Actions
+                    </tr>
+                </thead>
+            {% for dato in grupos %}
+                <tr>
+                    <td>{{dato.0}}</td><td>{{dato.1}}</td><td>{{dato.2}}</td><td class="icon">
+                        <a href="/admin-view-task-grupo/{{dato.0}}" class="view" title="" data-toggle="tooltip" data-original-title="View"><i class="material-icons"></i></a>
+                        <a href="/delet-grupo/{{dato.0}}" class="delete" title="" data-toggle="tooltip" data-original-title="Delete"><i class="material-icons"></i></a> 
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </section>
+</body>
+</html>
+

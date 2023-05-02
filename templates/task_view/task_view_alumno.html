@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block customCSS %}<link rel="stylesheet" href="/static/css/task_view/task_view.css">{% endblock %} 
+{% block body %}
+<section class="content_view_task">
+    <div class="content-data-user">
+        <img src="/static/img/per3.svg" alt="/img/">
+        {% for element in  data_alumnos %}
+        <ul>
+            <li class="content-data"><h4 class="id_primari">ID :</h4><h4>{{element.0}}</h4></li>
+            <li class="content-data"><h4 class="id_primari">Nombre: </h4><h4>{{element.1}}</h4></li>
+            <li class="content-data"><h4 class="id_primari">Apellido: </h4><h4>{{element.2}}</h4></li>
+        </ul>
+        {% endfor %}
+    </div>
+    <div class="cart-task">
+        {% for task in alumno_task %}
+        <ul>
+            <li>
+                <h5>{{ task.4.strftime('%d-%m-%Y') }}</h5>
+                <h2>{{task.1}}</h2>
+                <p>{{task.2}}</p>
+            </li>
+        </ul>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
